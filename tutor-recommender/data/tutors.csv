@@ -1,0 +1,21 @@
+tutor_id,gender,subject,teaching_mode,language,price,availability,experience_level,certification,rating
+1,Female,Hifdh and Tajweed|Tajweed,Virtual,English|Arabic,0,Morning|Afternoon,Beginner,Madrassa,0
+2,Male,Qur'an|Tawheed,Hybrid,English|Urdu,5000,Evening|Morning,Intermediate,Scholar,0
+3,Female,Tajweed|Qur'an,Virtual,Arabic|French,3000,Afternoon|Evening,Expert,Madrassa,0
+4,Male,Tawheed|Aqeedah,Physical,English|Hausa,4000,Morning|Afternoon,Intermediate,Scholar,0
+5,Female,Arabiyyah,Hybrid,Arabic|English,3500,Evening|Afternoon,Beginner,Self-taught,0
+6,Male,Hadith and Seeroh|Aqeedah,Virtual,English|Swahili,4500,Afternoon|Evening,Expert,Scholar,0
+7,Female,Aqeedah|Tawheed,Physical,Hausa|Arabic,3000,Morning|Evening,Intermediate,Madrassa,0
+8,Male,Qur'an and Tafseer|Hifdh and Tajweed,Hybrid,English|French,6000,Evening|Afternoon,Expert,Scholar,0
+9,Female,Tajweed|Arabiyyah,Virtual,English|Arabic,0,Afternoon|Morning,Beginner,Madrassa,0
+10,Male,Arabiyyah|Qur'an,Physical,Hausa|French,5000,Morning|Evening,Intermediate,Self-taught,0
+11,Female,Qur'an|Tajweed,Virtual,English|Arabic,4000,Evening|Afternoon,Expert,Madrassa,0
+12,Male,Tawheed|Hadith and Seeroh,Hybrid,English|Swahili,3500,Afternoon|Morning,Beginner,Self-taught,0
+13,Female,Hadith and Seeroh|Aqeedah,Physical,Hausa|Arabic,4500,Morning|Evening,Intermediate,Scholar,0
+14,Male,Aqeedah|Tawheed,Virtual,English|French,3000,Evening|Afternoon,Beginner,Madrassa,0
+15,Female,Qur'an and Tafseer|Hifdh and Tajweed,Hybrid,Arabic|English,6000,Afternoon|Morning,Expert,Scholar,0
+16,Male,Tajweed|Arabiyyah,Physical,English|Swahili,2500,Morning|Evening,Beginner,Self-taught,0
+17,Female,Arabiyyah|Aqeedah,Virtual,Arabic|English,3500,Evening|Afternoon,Intermediate,Madrassa,0
+18,Male,Qur'an|Tawheed,Hybrid,English|Hausa,0,Afternoon|Evening,Expert,Scholar,0
+19,Female,Tawheed|Hadith and Seeroh,Physical,Arabic|Swahili,4000,Morning|Afternoon,Intermediate,Madrassa,0
+20,Male,Hadith and Seeroh|Qur'an,Virtual,English|Arabic,5000,Evening|Morning,Expert,Scholar,0
