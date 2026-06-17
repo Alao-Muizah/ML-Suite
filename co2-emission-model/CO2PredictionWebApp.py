@@ -10,8 +10,10 @@ from sklearn.linear_model import Ridge
 import streamlit as st
 import cloudpickle
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "C02_model.sav")
 
-with open("C02_model.sav", "rb") as f:
+with open(MODEL_PATH, "rb") as f:
     loaded_model = cloudpickle.load(f)
     
 def co2(features):
