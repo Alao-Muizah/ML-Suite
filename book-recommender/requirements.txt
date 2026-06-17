@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-surprise
+groq
+joblib
+streamlit
+requests
+tqdm
+
