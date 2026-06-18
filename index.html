@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ML Suite Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    width:100vw;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    background:#121018;
+    padding:40px 20px;
+}
+
+/* glow */
+.bg1, .bg2{
+    position:fixed;
+    width:520px;
+    height:520px;
+    filter:blur(160px);
+    border-radius:50%;
+    opacity:0.28;
+    z-index:-1;
+}
+
+.bg1{
+    background:#ff3d7f;
+    top:-180px;
+    left:-180px;
+}
+
+.bg2{
+    background:#ff8a3d;
+    bottom:-180px;
+    right:-180px;
+}
+
+/* PAGE TITLE */
+.page-title{
+    font-size:42px;
+    font-weight:800;
+    color:#ffffff;
+    margin-bottom:35px;
+    letter-spacing:1px;
+    text-align:center;
+}
+
+/* GRID CONTAINER */
+.container{
+    width:80%;
+    max-width:1000px;
+
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+
+    gap:20px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .container{
+        grid-template-columns:1fr;
+        width:95%;
+    }
+
+    .page-title{
+        font-size:34px;
+    }
+
+}
+
+/* CARD */
+.card{
+    position:relative;
+    overflow:hidden;
+
+    border-radius:18px;
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    min-height:180px;
+
+    padding:24px;
+
+    color:#f8f8f8;
+
+    background:linear-gradient(
+        135deg,
+        #2f1d27,
+        #412535,
+        #512a40,
+        #341d2b
+    );
+
+    border:1px solid rgba(255,255,255,0.10);
+
+    transition:all 0.3s ease;
+
+    box-shadow:0 10px 22px rgba(0,0,0,0.35);
+}
+
+/* HOVER */
+.card:hover{
+
+    transform:translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 0 20px rgba(255, 80, 140, 0.35),
+        0 0 45px rgba(255, 120, 160, 0.2);
+}
+
+/* TITLE */
+.title{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+/* DESCRIPTION */
+.desc{
+    font-size:15px;
+    line-height:1.6;
+    opacity:0.88;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<div class="page-title">ML-Suite Dashboard</div>
+
+<div class="container">
+
+    <div class="card" onclick="window.open('https://c02-emission-model-haziumxyz.streamlit.app/', '_blank')">
+        <div class="title">CO₂ Emission Predictor</div>
+        <div class="desc">
+            Predicts vehicle emissions using fuel consumption and vehicle type for carbon tracking.
+        </div>
+    </div>
+
+    <div class="card" onclick="window.open('https://household-electricity-consumption-prediction-haziumxyzqr.streamlit.app/', '_blank')">
+        <div class="title">Electricity Forecast</div>
+        <div class="desc">
+            Uses lag features, rolling statistics, and cyclical encoding to model energy usage patterns.
+        </div>
+    </div>
+
+    <div class="card" onclick="window.open('https://churn-prediction-model-haziumxy.streamlit.app/', '_blank')">
+        <div class="title">Customer Churn</div>
+        <div class="desc">
+            Predicts customer retention in telecommunication companies using behavioral and transactional patterns.
+        </div>
+    </div>
+
+    <div class="card" onclick="window.open('https://book-recommender-model-haziumxyz.streamlit.app/', '_blank')">
+        <div class="title">Book Match</div>
+        <div class="desc">
+            Genre-based picks for new readers. Personalised recommendations for returning ones.
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
