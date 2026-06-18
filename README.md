@@ -20,7 +20,7 @@ Access all deployed projects from a single interface: [![Streamlit App](https://
 - **Customer Churn Prediction** – Predicts customer retention based on behavioral patterns.
 [View project repo](churn-prediction-model)
 - **BookMatch** – ML-powered book recommendations for every reader.
-[View project repo](tutor-recommender)
+[View project repo](book-recommender)
 
 ---
 
