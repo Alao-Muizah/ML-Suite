@@ -2,6 +2,13 @@
 Built a high-performance regression model to predict vehicle CO₂ emissions (g/km) using engine and fuel consumption features.
 The project focuses on handling multicollinearity and producing stable, interpretable predictions.
 
+---
+
+## Live Dashboard
+Access all deployed projects from a single interface: 
+ [![CO2 Prediction](https://img.shields.io/badge/CO2-Emission_Prediction-00B894?logo=leaflet)](https://c02-emission-model-haziumxyz.streamlit.app)
+
+---
 # Dataset
 This dataset captures the details of how CO2 emissions by a vehicle can vary with the different features. The dataset has been taken from Canada Government official open data website. This is a compiled version. This contains data over a period of 7 years. There are a total of 7385 rows and 12 columns. 
 
@@ -40,6 +47,4 @@ Typical vehicle CO₂ emissions range from 100–400 g/km, making these errors v
 
 # Dataset 
 [C02-Emission-Model/CO2 Emissions_Canada.csv](https://github.com/Alao-Muizah/C02-Emission-Model/blob/CO2Branch/CO2%20Emissions_Canada.csv)
-# Streamlit web App 
-[Access CO2 prediction web App here](https://c02-emission-model-haziumxyz.streamlit.app/)
 
