@@ -14,13 +14,13 @@ Access all deployed projects from a single interface: [![Streamlit App](https://
 ## Projects Included
 
 - **CO₂ Emission Predictor** – Estimates vehicle emissions using fuel and vehicle characteristics. 
-[View project repo](co2-emission-model)
+[View project folder](co2-emission-model)
 - **Electricity Forecasting** – Predicts energy consumption using time-based feature engineering (lag, rolling stats, cyclical encoding).
-[View project repo](electricity-prediction-model)
+[View project folder](electricity-prediction-model)
 - **Customer Churn Prediction** – Predicts customer retention based on behavioral patterns.
-[View project repo](churn-prediction-model)
+[View project folder](churn-prediction-model)
 - **BookMatch** – ML-powered book recommendations for every reader.
-[View project repo](book-recommender)
+[View project folder](book-recommender)
 
 ---
 
