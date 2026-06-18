@@ -11,8 +11,13 @@ import streamlit as st
 import sklearn
 import pickle 
 import lightgbm
+import os 
 
-loaded_model = pickle.load(open("Churn_model.sav", 'rb'))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "Churn_model.sav")
+
+with open(model_path, "rb") as f:
+    loaded_model = pickle.load(f)
 
 def ContractServices(data):
     if data.InternetService == 'DSL' and data.Contract == 'Month-to-month':
