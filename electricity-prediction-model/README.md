@@ -5,6 +5,13 @@ This project is a **Streamlit web application** that predicts household **Global
 It performs **feature engineering**, including cyclical encoding of time features, lagged and rolling target variables, and uses a **LightGBM machine learning model** for accurate electricity consumption forecasting.  
 The app allows users to input real-world electricity readings in an easy-to-understand format and get instant predictions.
 
+---
+
+## Live Dashboard
+Access all deployed projects from a single interface: 
+ [![Electricity Prediction](https://img.shields.io/badge/Electricity-Prediction-6C5CE7?logo=python)](https://household-electricity-consumption-prediction-haziumxyzqr.streamlit.app/)
+
+---
 ## Technologies Used
 - **Python**: pandas, numpy, scikit-learn, lightgbm, joblib, matplotlib  
 - **Web App**: Streamlit  
@@ -33,6 +40,5 @@ The app allows users to input real-world electricity readings in an easy-to-unde
 
 ## Usage
 
-1.  [Access the deployed streamlit app here](https://household-electricity-consumption-prediction-haziumxyzqr.streamlit.app/)
-2.  [Download Dataset here](https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption)
-3.  [Clone the Repo here](<https://github.com/Alao-Muizah/Household-Electricity-Consumption-Prediction/tree/Electricity-Branch>)
+*  [Download Dataset here](https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption)
+*  [Clone the Repo here](<https://github.com/Alao-Muizah/Household-Electricity-Consumption-Prediction/tree/Electricity-Branch>)
