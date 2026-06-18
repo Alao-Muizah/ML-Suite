@@ -1,6 +1,14 @@
 # Overview
 This project builds a machine learning classification model to predict customer churn in the telecom industry. By analyzing customer demographics, service usage, and account information, the model identifies customers who are likely to leave, enabling businesses to take proactive retention actions.
 
+---
+
+## Live Dashboard
+
+Access all deployed projects from a single interface: 
+ [![Churn Prediction](https://img.shields.io/badge/Customer-Churn_Prediction-E17055?logo=databricks)](https://churn-prediction-model-haziumxyz.streamlit.app/)
+
+---
 # Problem
 Customer churn leads to significant revenue loss for telecom companies.
 The challenge is to accurately identify high-risk customers early using historical customer data.
@@ -53,6 +61,4 @@ About: The Telco customer churn data contains information about a fictional telc
 # Datatset
 [Download Dataset here](https://github.com/Alao-Muizah/Churn-Prediction-Model/blob/ChurnBranch/WA_Fn-UseC_-Telco-Customer-Churn.csv)
 
-# Streamlit web App
-[Access The churn prediction web app here](https://churn-prediction-model-haziumxyz.streamlit.app/)
 
