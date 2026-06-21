@@ -23,35 +23,70 @@ MODEL_PATH = os.path.join(BASE_DIR, "Electricity_model.joblib")
 loaded_model = joblib.load(MODEL_PATH)
 
 
-def electricity(features):
-    feature_names = ['Global_reactive_power', 'Voltage', 'Global_intensity',
-       'Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3', 'year',
-       'dayofweek', 'month', 'day', 'Time_sec'] 
-    
+def electricity(features, recent_value):
+    feature_names = [
+        'Global_reactive_power',
+        'Voltage',
+        'Global_intensity',
+        'Sub_metering_1',
+        'Sub_metering_2',
+        'Sub_metering_3',
+        'year',
+        'dayofweek',
+        'month',
+        'day',
+        'Time_sec'
+    ]
+
     features_dataframe = pd.DataFrame([features], columns=feature_names)
-    Time_sec = st.session_state["Timess"].hour*3600 + st.session_state["Timess"].minute*60 + st.session_state["Timess"].second
-    features_dataframe['Time_sin'] = np.sin(2 * np.pi * Time_sec / 86400)
-    features_dataframe['Time_cos'] = np.cos(2 * np.pi * Time_sec / 86400)
-    features_dataframe['month_sin'] = np.sin(2 * np.pi * (features_dataframe['month'] -1) / 12)
-    features_dataframe['month_cos'] = np.cos(2 * np.pi * (features_dataframe['month'] -1) / 12)
-    days_in_month = calendar.monthrange(features_dataframe['year'].any(), features_dataframe['month'].any())[1]
-    day_norm = (features_dataframe['day'] - 1.0) / days_in_month
-    features_dataframe['day_sin'] = np.sin(2*np.pi*day_norm)
-    features_dataframe['day_cos'] = np.cos(2*np.pi*day_norm)
-    features_dataframe['lag_1'] = features_dataframe['lag_5'] = features_dataframe['lag_60'] = features_dataframe['lag_1440'] = st.session_state["number"]
-    features_dataframe['rolling_15min'] = features_dataframe['rolling_60min'] = features_dataframe['rolling_1hr'] = st.session_state["number"]
-    features_dataframe = features_dataframe.drop(["Time_sec", 'month', 'day'], axis=1)
-    
-    new_feature_order = ['Global_reactive_power', 'Voltage', 'Global_intensity',
-       'Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3', 'year',
-       'dayofweek', 'Time_sin', 'Time_cos', 'month_sin', 'month_cos',
-       'day_sin', 'day_cos', 'lag_1', 'lag_5', 'lag_60', 'lag_1440',
-       'Rollling_15min', 'Rolling_60min', 'Rolling_1hr']
-    
-    
-    
+
+    # Time encoding
+    time_sec = features_dataframe.loc[0, "Time_sec"]
+
+    features_dataframe['Time_sin'] = np.sin(2 * np.pi * time_sec / 86400)
+    features_dataframe['Time_cos'] = np.cos(2 * np.pi * time_sec / 86400)
+
+    # Month encoding
+    features_dataframe['month_sin'] = np.sin(
+        2 * np.pi * (features_dataframe['month'] - 1) / 12
+    )
+    features_dataframe['month_cos'] = np.cos(
+        2 * np.pi * (features_dataframe['month'] - 1) / 12
+    )
+
+    # Day encoding
+    year = int(features_dataframe.loc[0, "year"])
+    month = int(features_dataframe.loc[0, "month"])
+
+    days_in_month = calendar.monthrange(year, month)[1]
+
+    day_norm = (
+        features_dataframe['day'] - 1
+    ) / days_in_month
+
+    features_dataframe['day_sin'] = np.sin(2 * np.pi * day_norm)
+    features_dataframe['day_cos'] = np.cos(2 * np.pi * day_norm)
+
+    # Lag features
+    features_dataframe['lag_1'] = recent_value
+    features_dataframe['lag_5'] = recent_value
+    features_dataframe['lag_60'] = recent_value
+    features_dataframe['lag_1440'] = recent_value
+
+    # Rolling features
+    features_dataframe['rolling_15min'] = recent_value
+    features_dataframe['rolling_60min'] = recent_value
+    features_dataframe['rolling_1hr'] = recent_value
+
+    # Remove original cyclical columns
+    features_dataframe = features_dataframe.drop(
+        ["Time_sec", "month", "day"],
+        axis=1
+    )
+
     prediction = loaded_model.predict(features_dataframe)
-    return prediction
+
+    return float(prediction[0])
  
 st.set_page_config(layout="wide")
 
@@ -136,9 +171,8 @@ def main():
         
     Electricity = ''
     if st.button('Electricity Consumption result',
-                 use_container_width=True):                                  
-        Electricity = electricity([Global_reactive_power, Voltage, Global_intensity, Sub_metering_1, Sub_metering_2,
-        Sub_metering_3, year, dayofweek, month , day, Time_sec])
+                 use_container_width=True):                          
+        Electricity = electricity([Global_reactive_power, Voltage, Global_intensity, Sub_metering_1, Sub_metering_2, Sub_metering_3, year, dayofweek, month,day, Time_sec.hour * 3600 + Time_sec.minute * 60 + Time_sec.second ],recent_value)
 
     st.success(Electricity) 
                                   
