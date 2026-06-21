@@ -14,12 +14,14 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "C02_model.sav")
+DATA_PATH = os.path.join(BASE_DIR, "CO2 Emissions_Canada.csv")
+
 
 with open(MODEL_PATH, "rb") as f:
     loaded_model = cloudpickle.load(f)
 
 
-dataset = pd.read_csv('co2-emission-model/CO2 Emissions_Canada.csv')
+dataset = pd.read_csv(DATA_PATH)
 
 make_options = sorted(dataset["Make"].unique().tolist())
 model_options = sorted(dataset["Model"].unique().tolist())
