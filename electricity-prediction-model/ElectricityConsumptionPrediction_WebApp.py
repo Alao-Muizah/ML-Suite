@@ -53,6 +53,7 @@ def electricity(features):
     prediction = loaded_model.predict(features_dataframe)
     return prediction
  
+st.set_page_config(layout="wide")
 
 def main():
     st.title("Household Electric Power Consumption Prediction")
