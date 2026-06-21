@@ -88,7 +88,7 @@ def main():
             "Kitchen Appliances (kWh)",
             min_value=0.0,
             max_value=1000,
-            value=0
+            value=0.0
         )
 
     with col2:
@@ -96,7 +96,7 @@ def main():
             "Laundry Appliances (kWh)",
             min_value=0.0,
             max_value=1000,
-            value=0
+            value=0.0
         )
 
     with col3:
@@ -104,7 +104,7 @@ def main():
             "Water Heater & AC (kWh)",
             min_value=0.0,
             max_value=1000,
-            value=0
+            value=0.0
         )
     st.subheader("Date & Time")
 
