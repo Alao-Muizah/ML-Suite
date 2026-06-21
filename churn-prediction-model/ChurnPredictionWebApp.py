@@ -63,7 +63,11 @@ def churn(features):
     else:
         return "Customer will likely churn"
     
-
+Senior_Citizen_mapping = {
+    "yes": "1",
+    "no ": "0"
+}
+Senior_Citizen_options = list(Senior_Citizen_mapping.keys())
     
 def main():
      
@@ -78,10 +82,10 @@ def main():
         )
 
     with col2:
-        SeniorCitizen = st.selectbox(
-            "Senior Citizen",
-            [0, 1]
-        )
+        SeniorCitizen_display = st.selectbox(
+        "Senior Citizen",
+        Senior_Citizen_options)
+        SeniorCitizen = Senior_Citizen_mapping[SeniorCitizen_display]
 
     with col3:
         Partner = st.selectbox(
