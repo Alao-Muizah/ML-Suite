@@ -38,7 +38,8 @@ def ContractServices(data):
         return  'N1year'
     elif data.InternetService == 'No' and data.Contract == 'Two year':
         return  'N2years'	
-    
+
+st.set_page_config(layout="wide")
 
 def churn(features):
     feature_names = ['gender','SeniorCitizen','Partner','Dependents','tenure','PhoneService','MultipleLines','InternetService',
