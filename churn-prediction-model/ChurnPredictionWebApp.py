@@ -66,31 +66,142 @@ def churn(features):
     
 def main():
      
-    st.title("Customer churn prediction Web App")
-    gender = st.text_input("Gender (Male/Female)").capitalize()
-    SeniorCitizen = st.number_input("Is customer a Senior Citizen? (0 = No, 1 = Yes)")
-    Partner = st.text_input("Does customer have a partner? (Yes/No)").capitalize()
-    Dependents = st.text_input("Does customer have dependents? (Yes/No)").capitalize()
-    tenure = st.number_input("Enter tenure (Number of months the customer has stayed)")
-    PhoneService = st.text_input("Does customer have Phone Service? (Yes/No)").capitalize()
-    MultipleLines = st.text_input("Multiple Lines (No, Yes, No phone service)").capitalize()
-    InternetService = st.text_input("Internet Service Type (DSL, Fiber optic, No)").capitalize()
-    OnlineSecurity = st.text_input("Online Security (Yes, No, No internet service)").capitalize()
-    OnlineBackup = st.text_input("Online Backup (Yes, No, No internet service)").capitalize()
-    DeviceProtection = st.text_input("Device Protection (Yes, No, No internet service)").capitalize()
-    TechSupport = st.text_input("Tech Support (Yes, No, No internet service)").capitalize()
-    StreamingTV = st.text_input("Streaming TV (Yes, No, No internet service)").capitalize()
-    StreamingMovies = st.text_input("Streaming Movies (Yes, No, No internet service)").capitalize()
-    Contract = st.text_input("Contract Type (Month-to-month, One year, Two year)").capitalize()
-    PaperlessBilling = st.text_input("Paperless Billing (Yes/No)").capitalize()
-    PaymentMethod = st.text_input("Payment Method (Electronic check, Mailed check, Bank transfer (automatic)r, Credit card (automatic)").capitalize()
-    MonthlyCharges = st.number_input("Monthly Charges")
-    TotalCharges = st.number_input("Total Charges")
+    st.title("Customer Churn Prediction Web App")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        gender = st.selectbox(
+            "Gender",
+            ["Male", "Female"]
+        )
+
+    with col2:
+        SeniorCitizen = st.selectbox(
+            "Senior Citizen",
+            [0, 1]
+        )
+
+    with col3:
+        Partner = st.selectbox(
+            "Partner",
+            ["Yes", "No"]
+        )
+
+    with col4:
+        Dependents = st.selectbox(
+            "Dependents",
+            ["Yes", "No"]
+        )
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        tenure = st.number_input(
+            "Tenure (Months)",
+            min_value=0
+        )
+
+    with col2:
+        PhoneService = st.selectbox(
+            "Phone Service",
+            ["Yes", "No"]
+        )
+
+    with col3:
+        MultipleLines = st.selectbox(
+            "Multiple Lines",
+            ["Yes", "No", "No phone service"]
+        )
+
+    with col4:
+        InternetService = st.selectbox(
+            "Internet Service",
+            ["DSL", "Fiber optic", "No"]
+        )
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        OnlineSecurity = st.selectbox(
+            "Online Security",
+            ["Yes", "No", "No internet service"]
+        )
+
+    with col2:
+        OnlineBackup = st.selectbox(
+            "Online Backup",
+            ["Yes", "No", "No internet service"]
+        )
+
+    with col3:
+        DeviceProtection = st.selectbox(
+            "Device Protection",
+            ["Yes", "No", "No internet service"]
+        )           
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        TechSupport = st.selectbox(
+            "Tech Support",
+            ["Yes", "No", "No internet service"]
+        )
+
+    with col2:
+        StreamingTV = st.selectbox(
+            "Streaming TV",
+            ["Yes", "No", "No internet service"]
+        )
+
+    with col3:
+        StreamingMovies = st.selectbox(
+            "Streaming Movies",
+            ["Yes", "No", "No internet service"]
+        )       
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        Contract = st.selectbox(
+            "Contract",
+            ["Month-to-month", "One year", "Two year"]
+        )
+
+    with col2:
+        PaperlessBilling = st.selectbox(
+            "Paperless Billing",
+            ["Yes", "No"]
+        )
+
+    with col3:
+        PaymentMethod = st.selectbox(
+            "Payment Method",
+            [
+                "Electronic check",
+                "Mailed check",
+                "Bank transfer (automatic)",
+                "Credit card (automatic)"
+            ]
+        )             
     
-                                   
-                                  
+    col1, col2 = st.columns(2)
+
+    with col1:
+        MonthlyCharges = st.number_input(
+            "Monthly Charges",
+            min_value=0.0,
+            step=0.01
+        )
+
+    with col2:
+        TotalCharges = st.number_input(
+            "Total Charges",
+            min_value=0.0,
+            step=0.01
+        )
+    
     Churn = ''
-    if st.button('Customer churn result'):                                  
+    if st.button('Customer churn result',
+                 use_container_width=True):                                  
         Churn = churn([gender, SeniorCitizen, Partner, Dependents, tenure,
         PhoneService, MultipleLines, InternetService, OnlineSecurity,
         OnlineBackup, DeviceProtection, TechSupport, StreamingTV,
