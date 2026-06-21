@@ -85,27 +85,30 @@ def main():
 
     with col1:
         Sub_metering_1 = st.number_input(
-            "Kitchen Appliances (kWh)",
-            min_value=0.0,
-            max_value=1000,
-            value=0.0
-        )
+        "Kitchen Appliances",
+        min_value=0.0,
+        max_value=100.0,
+        value=0.0,
+        step=0.1
+    )
 
     with col2:
         Sub_metering_2 = st.number_input(
-            "Laundry Appliances (kWh)",
-            min_value=0.0,
-            max_value=1000,
-            value=0.0
-        )
+        "Laundry Appliances",
+        min_value=0.0,
+        max_value=100.0,
+        value=0.0,
+        step=0.1
+    )
 
     with col3:
         Sub_metering_3 = st.number_input(
-            "Water Heater & AC (kWh)",
-            min_value=0.0,
-            max_value=1000,
-            value=0.0
-        )
+        "Water Heater & AC",
+        min_value=0.0,
+        max_value=100.0,
+        value=0.0,
+        step=0.1
+)
     st.subheader("Date & Time")
 
     col1, col2 = st.columns(2)
