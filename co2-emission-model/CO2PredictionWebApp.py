@@ -19,7 +19,7 @@ with open(MODEL_PATH, "rb") as f:
     loaded_model = cloudpickle.load(f)
 
 
-dataset = pd.read_csv('CO2 Emissions_Canada.csv')
+dataset = pd.read_csv('co2-emission-model/CO2 Emissions_Canada.csv')
 
 make_options = sorted(dataset["Make"].unique().tolist())
 model_options = sorted(dataset["Model"].unique().tolist())
