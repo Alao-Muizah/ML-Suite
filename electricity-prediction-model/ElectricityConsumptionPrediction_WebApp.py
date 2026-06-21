@@ -55,25 +55,84 @@ def electricity(features):
  
 
 def main():
-    st.title("Household Electric Power Consumption Prediction Web App")
-    Global_reactive_power = 0.13 
-    Voltage = st.number_input("Enter voltage value", min_value=0, max_value=300, value=220)
-    Global_intensity = st.number_input("Enter Global Intensity (A)")  
+    st.title("Household Electric Power Consumption Prediction")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        Voltage = st.number_input(
+            "Voltage (V)",
+            min_value=0,
+            max_value=300,
+            value=220
+        )
+
+    with col2:
+        Global_intensity = st.number_input(
+            "Global Intensity (A)",
+            min_value=0.0
+        )
+
+    with col3:
+        recent_value = st.number_input(
+            "Recent Global Active Power (kW)",
+            value=1.5
+        )
+    st.subheader("Energy Usage")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        Sub_metering_1 = st.number_input(
+            "Kitchen Appliances (kWh)",
+            min_value=0,
+            max_value=1000,
+            value=0
+        )
+
+    with col2:
+        Sub_metering_2 = st.number_input(
+            "Laundry Appliances (kWh)",
+            min_value=0,
+            max_value=1000,
+            value=0
+        )
+
+    with col3:
+        Sub_metering_3 = st.number_input(
+            "Water Heater & AC (kWh)",
+            min_value=0,
+            max_value=1000,
+            value=0
+        )
+    st.subheader("Date & Time")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        selected_date = st.date_input("Date")
+
+    with col2:
+        Time_sec = st.time_input(
+            "Time",
+            key="Timess"
+        )
+        year = selected_date.year
+        month = selected_date.month
+        day = selected_date.day
+        dayofweek = selected_date.weekday()
+    Global_reactive_power = st.slider(
+    "Global Reactive Power",
+    min_value=0.0,
+    max_value=2.0,
+    value=0.13,
+    step=0.01
+    )
+    st.info("Global Reactive Power represents non-working power used to maintain electric/magnetic fields. It doesn't perform useful work but affects total power flow.")
         
-    Sub_metering_1 = st.number_input("Energy used by kitchen appliances (kWh)", min_value=0, max_value=1000, value=0)
-    Sub_metering_2 = st.number_input("Energy used by laundry room appliances (kWh)", min_value=0, max_value=1000, value=0)
-    Sub_metering_3 = st.number_input("Energy used by water heater & AC (kWh)", min_value=0, max_value=1000, value=0)
-    Time_sec = st.time_input("Select a time:", key='Timess')
-    selected_date = st.date_input("Select a date")
-    year = selected_date.year 
-    dayofweek = selected_date.weekday()
-    month = selected_date.month 
-    day = selected_date.day
-    recent_value = st.number_input("Most recent Global Active Power (kW):", value=1.5, key="number")
-    
-    
     Electricity = ''
-    if st.button('Electricity Consumption result'):                                  
+    if st.button('Electricity Consumption result',
+                 use_container_width=True):                                  
         Electricity = electricity([Global_reactive_power, Voltage, Global_intensity, Sub_metering_1, Sub_metering_2,
         Sub_metering_3, year, dayofweek, month , day, Time_sec])
 
@@ -82,13 +141,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
 
 
